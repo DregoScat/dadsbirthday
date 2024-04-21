@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Creation of event</title>
+    {% include "_head.html" %}
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+{%include "_navr.html"%}
+<body>
+<form method="post">
+    <p class="blue">Введіть назву плану:</p>
+    <input type="text" name="name">
+
+    <p class="blue">Введіть опис плану:</p>
+    <input type="text" name="info">
+
+    <input type="datetime-local"
+           id="event-time"
+           name="event-time"/>
+    <input type="submit">
+
+</form>
+</body>
+</html>

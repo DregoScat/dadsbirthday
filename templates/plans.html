@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"  data-bs-theme="dark"> <!--data-bs-theme="dark"-->
+<head>
+    <meta charset="UTF-8">
+    <title>Your events</title>
+    {% include "_head.html" %}
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+{%include "_navr.html"%}
+
+
+
+
+{%for j in range(len_events): %}
+
+<div class="container">
+    <div class="boxx">
+        <div class="card text-primary bg-primary-subtle border border-primary-subtle rounded-2" style="max-width: 18rem;">
+            {%for i,q in events[j].items(): %}
+            {%if i == 'name': %}
+            <div class='--bs-warning-text-emphasis card-header'>{{q}}</div>
+
+            {%elif i == 'info'%}
+            <div class="card-body">
+                <p class="card-text">{{q}}</p>
+
+                {%elif i == 'time'%}
+                <div class="card-body">
+                    <p class="card-text">{{q}}</p>
+                </div>
+                {%endif%}
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+
+
+    {%endfor%}
+
+
+</body>
+</html>

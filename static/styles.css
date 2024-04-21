@@ -1,0 +1,80 @@
+.box {
+
+width: 100px;
+
+height: 100px;
+
+transition: transform 0.3s ease;
+
+}
+
+.box:hover {
+
+transform: scale(1.2);
+
+}
+.boxx {
+
+transition: transform 0.3s ease;
+
+}
+
+.boxx:hover {
+
+transform: scale(1.1);
+
+}
+
+
+
+.containerq {
+display: flex;
+flex-direction: column;
+width:500px;
+box-shadow:3px 3px 10px rgba(0,0,0,0.15);
+border-top:5px solid #628577;
+border-bottom:5px solid #628577;
+}
+
+.todo {
+color: black;
+background: white;
+display: flex;
+justify-content: space-between;
+padding: 1em;
+}
+.newtodo {
+color: black;
+background: white;
+display: flex;
+justify-content: space-between;
+padding: 1em;
+}
+
+.todo__value {
+background: transparent;
+border: none;
+outline: none;
+font-family: 'Quicksand', sans-serif;
+font-size: 1em;
+font-weight: bold;
+flex-grow: 1;
+}
+.newtodoo {
+width: 500;
+background: transparent;
+border: none;
+outline: none;
+font-family: 'Quicksand', sans-serif;
+font-size: 1em;
+font-weight: bold;
+flex-grow: 1;
+}
+
+
+.todo:has(.todo__checkbox:checked) {
+color: black;
+background: #3b3d3c;
+text-decoration: line-through;
+order: 1;
+}

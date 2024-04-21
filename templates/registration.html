@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    {% include "_head.html" %}
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+{% include "_navnr.html" %}
+<!--<h1 class="fontus">This is the test text</h1>-->
+<!--<a class="fontus" href="/calc">calculator</a>-->
+<!--<a class="fontus" href="/calc2">stupid calculator</a>-->
+<!--<a href="/">go to route</a>-->
+
+<h1 class="fontik">Регістрація</h1>
+
+<form method="post">
+    <p class="fontik">Введіть ваше ім'я:</p>
+    <input type="text" name="name">
+    <p class="fontik">Введіть ваш email:</p>
+    <input type="email" name="email">
+    <p class="fontik">Введіть пароль:</p>
+    <input type="password" name="pass">
+    <p class="fontik">Повторіть пароль:</p>
+    <input type="password" name="pass2">
+    {%if passus: %}
+    <p class="red">Ваши паролі не співпадають</p>
+    {%endif %}
+    {%if susss: %}
+    <meta http-equiv="refresh" content="0; URL='/'" />
+    {%endif %}
+
+    <input type="submit" value="Зареєструватия">
+    {%if err: %}
+    <h6 class="red"><em>Аккаунт з такою поштою вже існує!!!</em></h6>
+    <a href="/login">хочете зайти в аккаунт?</a>
+    {%endif%}
+</form>
+</body>
+</html>

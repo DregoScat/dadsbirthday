@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    {% include "_head.html" %}
+</head>
+<body style="background-color: lightgrey;">
+{% include "_navr.html" %}
+<div class="containerq">
+    <div class="newtodo">
+        <form method="post">
+            <input type="text" class="nowtodoo" placeholder="new todo" name="todovalue">
+            <input type="submit"  value="Add">
+
+        </form>
+    </div>
+</div>
+<div class="containerq">
+
+
+    {%for i in todovalue: %}
+        <div class="todo">
+            <input type="text" class="todo__value" placeholder="(empty)" value="{{i}}">
+            <button class="delete-btn" data-value="{{ i }}">Delete</button>
+            <input type="checkbox" class="todo__checkbox">
+        </div>
+    {%endfor%}
+
+
+    <div class="tasks"></div>
+</div>
+<script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const todoValue = this.getAttribute('data-value');
+            fetch('/delete-todo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ todovalue: todoValue }),
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Remove the deleted to-do item from the DOM
+                    this.parentNode.remove();
+                } else {
+                    console.error('Failed to delete to-do item');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

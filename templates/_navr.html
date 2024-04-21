@@ -1,0 +1,16 @@
+
+
+
+<nav>
+    <div class="boxx">
+        <div class="text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+            <div class="container">>
+                {%for i in ["homepage","create_plan", "plans", "TODO_lists", "exit"]: %}
+
+                <a class='fontus --bs-warning-text-emphasis' href="{{url_for(i)}}">{{i}}</a>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</nav>
+
